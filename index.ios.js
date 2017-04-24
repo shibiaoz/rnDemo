@@ -12,6 +12,42 @@ import {
   View
 } from 'react-native';
 import IndexScreen from './js/index/index';
+import Detail from './js/detail/detail';
+import ViewPageDemo from './js/view-page-demo/view-page-demo';
+import WebviewDemo from './js/webview-demo/webview-demo';
+import DrawerAndroidDemo from './js/drawer-android-demo/drawer-android-demo';
+import RnViewPager from './js/js-view-page/js-view-page'
+import {
+  StackNavigator,
+} from 'react-navigation';
+import ListViewDemo from './js/list-view-demo/list-view-demo';
+const App = StackNavigator({
+  Main: {
+            screen: IndexScreen,
+            navigationOptions: {
+            // headerVisible: false,
+        }
+  },
+  Detail: {screen: Detail},
+  ViewPageDemo: {
+      screen:ViewPageDemo
+  },
+  WebviewDemo:{
+      screen:WebviewDemo
+  },
+  DrawerAndroidDemo:{
+      screen:DrawerAndroidDemo
+  },
+  RnViewPager:{
+      screen:RnViewPager
+  },
+  ListViewDemo:{
+       screen:ListViewDemo
+  }
+  
+})
+
+
 export default class invest extends Component {
   render() {
     return (
@@ -41,4 +77,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('invest', () => invest);
+AppRegistry.registerComponent('invest', () => App);

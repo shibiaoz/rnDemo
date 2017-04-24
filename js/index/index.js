@@ -9,12 +9,13 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   Alert,
+  Dimensions
 } from 'react-native';
 
 import Banner from '../banner/banner';
 import ListItem from '../list-item/list-item';
 
-
+var {height,width}=Dimensions.get('window')
 // style 
 import IndexStyle from './index.css.js';
 
@@ -52,9 +53,12 @@ export default class IndexScreen extends Component {
             <TouchableOpacity onPress={this._onPressButton}>
                 <Text>Button TouchableOpacity</Text>
             </TouchableOpacity>*/}
-            <ScrollView horizontal={isHorizontal} style={styles.scrolWraper} showsHorizontalScrollIndicator={false}>
+            <ScrollView horizontal={false} style={styles.scrolWraper} showsHorizontalScrollIndicator={false}>
+                <View style={styles.tabItem} >
+                    <Text style={styles.tabItem}  onPress={ () => navigate('ListViewDemo', { name: 'ListViewDemo' })}>ListViewDemo</Text>
+                </View>
                 <View style={styles.tabItem}>
-                    <Text  onPress={ () => navigate('ViewPageDemo',{name:'ViewPageDemo'})}>ViewPageDemo</Text>
+                    <Text style={styles.tabItem}  onPress={ () => navigate('ViewPageDemo',{name:'ViewPageDemo'})}> android ViewPageDemo</Text>
                 </View>
                 <Text style={styles.tabItem} onPress={ () => navigate('RnViewPager', { name: 'RnViewPager' })}>RnViewPager</Text>
                 <Text style={styles.tabItem} onPress={ () => navigate('WebviewDemo',{name:'WebviewDemo'}) }>WebviewDemo</Text>
@@ -64,7 +68,7 @@ export default class IndexScreen extends Component {
                 <Text style={styles.tabItem}>投资有道2</Text>
                 <Text style={styles.tabItem}>企业版2</Text>
             </ScrollView>
-            <ListView
+            {/*<ListView
                 dataSource={this.state.dataSource}
                 onEndReachedThreshold={50}
                 showsVerticalScrollIndicator={false}
@@ -72,7 +76,7 @@ export default class IndexScreen extends Component {
                 initialListSize={15}
                 onEndReached={this.endReach}
                 renderRow={(rowData) =>  <ListItem {...rowData}/>}
-            />
+            />*/}
         </View>
         )
     }
@@ -99,17 +103,20 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   scrolWraper: {
-      height:100,
+    //   height:100,
+      flex:1,
+      width:width
   },
   tabItem:{
       flex:1,
-      width:200,
+      width:width,
       height:50,
       justifyContent:'center',
-      borderColor:'red',
-      borderStyle:'dashed',
-      borderWidth:1,
+    //   borderColor:'red',
+    //   borderStyle:'dashed',
+    //   borderWidth:1,
       borderRightWidth:0,
+      backgroundColor:'#fffccc',
     //   textAlign:'center',
       alignItems:'center',
     //   textAlignVertical:'center',

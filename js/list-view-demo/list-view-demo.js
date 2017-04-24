@@ -78,7 +78,7 @@ export default class ListViewDemo extends Component {
     _renderSectionHeader(sectionData, sectionID) {
         return (
             <View style={{height:60,backgroundColor:'yellow'}}>
-                 <Text>sticky</Text>
+                 <Text>sticky 效果android 不支持，ios 支持</Text>
             </View>
         )
     }

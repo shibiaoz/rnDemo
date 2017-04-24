@@ -40,6 +40,9 @@ const App = StackNavigator({
   },
   RnViewPager:{
       screen:RnViewPager
+  },
+  ListViewDemo:{
+       screen:ListViewDemo
   }
   
 })
@@ -74,4 +77,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('invest', () => ListViewDemo);
+AppRegistry.registerComponent('invest', () => App);
